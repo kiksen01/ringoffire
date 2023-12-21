@@ -1,0 +1,129 @@
+.field {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-image: url('/assets/img/board.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-stack {
+    position: relative;
+    user-select: none;
+
+    img {
+        position: absolute;
+        width: 120px;
+
+        @media (max-width: 440px) {
+
+            
+        }
+    }
+}
+
+
+
+.top-card {
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.1) translateY(-10px);
+    }
+}
+
+.played-card {
+    right: -22px;
+    transform: scale(1.2) translateX(0px) translateY(-195px) rotate(-10deg) ;
+}
+
+.pick-card {
+    animation: pick-card-animation 1110ms ease-in-out;
+}
+
+
+
+@keyframes pick-card-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.7);
+
+    }
+
+    60% {
+        transform: scale(1.7);
+
+    }
+
+    100% {
+        transform: scale(1.2) translateX(104px) translateY(-195px) rotate(-10deg);
+    }
+}
+
+
+
+
+.player-position {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.btn-add {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    z-index: 10;
+
+    @media (max-width: 600px) {
+        bottom: 110px;
+    }
+}
+
+.pin-bottom {
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+    left: 100px;
+
+    @media (max-width: 600px) {
+        right: 10px;
+        left: 10px;
+        bottom: 10px;
+    }
+}
+
+.mobile-player-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.hide-mobile {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.hide-desktop {
+    margin-left: 2px;
+    margin-right: 2px;
+
+}
+
+.end-screen{
+   position: absolute;
+   bottom: 0;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 10000;
+}

@@ -1,0 +1,7 @@
+<mat-card class="game-info-message">
+    <mat-card-title *ngIf="noCardPlayed">{{ card ? title: 'Add two Players'}}  </mat-card-title>
+    <mat-card-title *ngIf="!noCardPlayed">{{ card ? title: 'Please pick a Card!'}}  </mat-card-title>
+
+    <mat-card-content *ngIf="noCardPlayed"> {{ card ? description: 'You need to invite atleast two Friends in order to play this game. Max Players 8'}}</mat-card-content>
+    <mat-card-content *ngIf="!noCardPlayed"> {{ card ? description: 'Please click on the Card-stack to pick a Card'}}</mat-card-content>
+</mat-card>

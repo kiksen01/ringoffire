@@ -1,0 +1,34 @@
+<div class="player-position">
+    <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': 20 + (i * 90)}"
+        [playerActive]="i == game.currentPlayer" [name]="player" class="hide-mobile">
+    </app-player>
+</div>
+
+<div class="mobile-player-container">
+    <app-app-player-mobile *ngFor="let player of game.players; let i = index;"
+        [ngStyle]="{'left.px': 20 + (i * 90),'top.px': 0}" [playerActive]="i == game.currentPlayer" [name]="player"
+        class="hide-desktop">
+    </app-app-player-mobile>
+</div>
+<div class="field">
+    <div class="card-stack">
+        <img *ngFor="let card of game.playedCards" src="/assets/img/cards/{{card}}.png" class="played-card" style="left: 0px;">
+        <div>
+            <img *ngFor="let c of [0,1,2,3]; let i = index;" [ngStyle]="{'right.px':-20 + (i*5)}"
+                src="/assets/img/cards/card_cover.png" alt="" class="card-stack-container">
+        </div>
+        
+        <img (click)="takeCard()" class="top-card" style="right: 5px;" src="/assets/img/cards/card_cover.png" alt="">
+        
+        <img (click)="takeCard()" *ngIf="game.pickCardAnimation" class="pick-card" style="right: 5px;"
+        src="/assets/img/cards/{{game.currentCard}}.png" alt="">
+    </div>
+
+</div>
+
+<button mat-fab color="primary" (click)="openDialog()" class="btn-add">
+    <mat-icon>add</mat-icon>
+</button>
+
+<app-game-info [card]="game.currentCard" class="pin-bottom"></app-game-info>
+<app-end-screen *ngIf="game.emptyCardStack" class="end-screen"></app-end-screen>
